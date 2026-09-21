@@ -66,3 +66,5 @@ campusfix-starter/
     ├── conftest.py      # pytest fixture（临时数据库）
     └── test_app.py      # 示例测试（含 1 个故意失败）
 ```
+
+（远程协作演示：这行来自GitHub网页端）
