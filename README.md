@@ -68,3 +68,4 @@ campusfix-starter/
 ```
 
 （本地协作演示：这行来自本地VS Code）
+（远程协作演示：这行来自GitHub网页端）
