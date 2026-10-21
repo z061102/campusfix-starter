@@ -30,6 +30,13 @@ def get_db():
     return g.db
 
 
+def validate_ticket(title, room):
+    """校验工单输入：标题最多20个字符（第14次课测试驱动实现）"""
+    if len(title) > 20:
+        return "标题不能超过20个字符"
+    return None
+
+
 @app.teardown_appcontext
 def close_db(exc):
     db = g.pop("db", None)
@@ -69,6 +76,9 @@ def create_ticket():
         title = request.form.get("title", "").strip()
         room = request.form.get("room", "").strip()
         description = request.form.get("description", "").strip()
+        error = validate_ticket(title, room)
+        if error:
+            return error, 400
         db = get_db()
         db.execute(
             "INSERT INTO tickets (title, room, description) VALUES (?, ?, ?)",
