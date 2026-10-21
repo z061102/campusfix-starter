@@ -21,3 +21,10 @@ jobs:
 
       - name: 运行测试
         run: pytest -v
+
+      - name: 验证Secret注入
+        run: |
+          echo "token 长度：${#CAMPUSFIX_TOKEN}"
+          if [ ${#CAMPUSFIX_TOKEN} -lt 12 ]; then echo "token 太短"; exit 1; fi
+        env:
+          CAMPUSFIX_TOKEN: ${{ secrets.CAMPUSFIX_TOKEN }}
