@@ -1,0 +1,14 @@
+# 第19次课：构建上下文排除清单（减小镜像、避免带入敏感文件）
+.git/
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+instance/
+docs/
+tests/
+.env
+.env.example
+*.db
