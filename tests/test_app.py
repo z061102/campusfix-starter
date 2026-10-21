@@ -9,7 +9,7 @@ def test_health(client):
     """健康检查接口应返回 ok"""
     resp = client.get("/health")
     assert resp.status_code == 200
-    assert resp.get_json() == {"status": "bad"}
+    assert resp.get_json() == {"status": "ok"}
 
 
 def test_list_tickets(client):
