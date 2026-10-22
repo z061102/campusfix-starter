@@ -9,6 +9,13 @@ def test_index(client):
     assert "CampusFix".encode("utf-8") in resp.data
 
 
+def test_index_title(client):
+    """考试：首页标题应显示学号版本 CampusFix-20252152"""
+    resp = client.get("/")
+    assert resp.status_code == 200
+    assert "CampusFix-20252152".encode("utf-8") in resp.data
+
+
 def test_detail(client):
     """创建工单后，详情页应 200 并显示该工单"""
     client.post(
